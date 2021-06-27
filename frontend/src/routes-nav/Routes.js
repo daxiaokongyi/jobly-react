@@ -7,6 +7,7 @@ import LoginForm from '../components/users/LoginForm';
 import SignupForm from '../components/users/SignupForm';
 import ProfileForm from '../components/users/ProfileForm';
 import JobList from '../components/jobs/JobList';
+import PrivateRoute from './PrivateRoute';
 
 
 const Routes = ({login, signup}) => {
@@ -16,24 +17,24 @@ const Routes = ({login, signup}) => {
                 <Route exact path="/">
                     <Homepage/>
                 </Route>
-                <Route exact path="/companies">
+                <PrivateRoute exact path="/companies">
                     <CompanyList/>
-                </Route>
-                <Route exact path="/companies/:handle">
+                </PrivateRoute>
+                <PrivateRoute exact path="/companies/:handle">
                     <CompanyDetail/>
-                </Route>         
+                </PrivateRoute>         
                 <Route exact path="/signup">
                     <SignupForm signup={signup}/>
                 </Route>    
                 <Route exact path="/login">
                     <LoginForm login={login}/>
                 </Route>    
-                <Route exact path="/profile">
+                <PrivateRoute exact path="/profile">
                     <ProfileForm/>
-                </Route>   
-                <Route exact path="/jobs">
+                </PrivateRoute>   
+                <PrivateRoute exact path="/jobs">
                     <JobList/>
-                </Route>
+                </PrivateRoute>
                 <Redirect to='/'/>
             </Switch>
         </div>

@@ -7,9 +7,13 @@ import JoblyApi from './api/api';
 import UserContext from './components/users/UserContext';
 import jwt from 'jsonwebtoken';
 import LoadingSpinner from './components/common/loadingSpinner/LoadingSpinner';
+import useLocalStorage from './hooks/useLocalStorage';
+
+// Key name for storing token in localStorage, question, what does export do here, export to where? 
+export const TOKEN_STORAGE_ID = "jobly-token";
 
 function App() {
-  const [token, setToken] = useState(JoblyApi.token);
+  const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
   const [currentUser, setCurrentUser] = useState(null);
   const [infoLoaded, setInfoLoaded] = useState(false);
 
