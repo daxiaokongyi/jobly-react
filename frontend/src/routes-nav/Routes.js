@@ -5,7 +5,7 @@ import CompanyList from '../components/companies/CompanyList';
 import CompanyDetail from '../components/companies/CompanyDetail';
 import LoginForm from '../components/users/LoginForm';
 import SignupForm from '../components/users/SignupForm';
-import ProfileForm from '../components/users/ProfileForm';
+import ProfilePage from '../components/users/ProfilePage';
 import JobList from '../components/jobs/JobList';
 import PrivateRoute from './PrivateRoute';
 
@@ -30,7 +30,7 @@ const Routes = ({login, signup}) => {
                     <LoginForm login={login}/>
                 </Route>    
                 <PrivateRoute exact path="/profile">
-                    <ProfileForm/>
+                    <ProfilePage/>
                 </PrivateRoute>   
                 <PrivateRoute exact path="/jobs">
                     <JobList/>
