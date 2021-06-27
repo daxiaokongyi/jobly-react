@@ -6,10 +6,10 @@ import CompanyDetail from '../components/companies/CompanyDetail';
 import LoginForm from '../components/users/LoginForm';
 import SignupForm from '../components/users/SignupForm';
 import ProfileForm from '../components/users/ProfileForm';
-import JobList from '../components/jobs/Jobs';
+import JobList from '../components/jobs/JobList';
 
 
-const Routes = () => {
+const Routes = ({login, signup}) => {
     return (
         <div>
             <Switch>
@@ -19,14 +19,14 @@ const Routes = () => {
                 <Route exact path="/companies">
                     <CompanyList/>
                 </Route>
-                <Route exact path="/companies/:companyName">
+                <Route exact path="/companies/:handle">
                     <CompanyDetail/>
                 </Route>         
                 <Route exact path="/signup">
-                    <SignupForm/>
+                    <SignupForm signup={signup}/>
                 </Route>    
                 <Route exact path="/login">
-                    <LoginForm/>
+                    <LoginForm login={login}/>
                 </Route>    
                 <Route exact path="/profile">
                     <ProfileForm/>
