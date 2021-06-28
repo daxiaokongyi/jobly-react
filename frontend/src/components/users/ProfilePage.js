@@ -42,7 +42,7 @@ const ProfilePage = () => {
             updatedUser = await JoblyApi.saveProfile(username, profileData);
         } catch (errors) {
             setFormErrors(errors);
-            // return;
+            return;
         }
 
         // after updating the user's data successfully

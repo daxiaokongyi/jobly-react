@@ -16,6 +16,7 @@ function App() {
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
   const [currentUser, setCurrentUser] = useState(null);
   const [infoLoaded, setInfoLoaded] = useState(false);
+  const [applicationIds, setApplicationIds] = useState(new Set([]));
 
   console.log(token);
 
@@ -35,6 +36,8 @@ function App() {
           let currentUser = await JoblyApi.getCurrentUser(username);
           // set the state of currentUser as the currentuser above
           setCurrentUser(currentUser);
+          // get user's applications
+          setApplicationIds(new Set(currentUser.applications));
         } catch (error) {
           console.log("Error with loading user info", error);
           // set current info back to null
@@ -81,13 +84,36 @@ function App() {
     }
   }
 
+  // apply a job
+  const applyToJob = (id) => {
+    console.log(id);
+    console.log(currentUser.username);
+
+    // check if user applied already
+    if(hasAppliedToJobs(id)) {
+      return;
+    }
+    // if not, add job id into user's application set
+    // apply jobs
+    JoblyApi.applyJob(currentUser.username, id);
+    // update user's job application set
+    setApplicationIds(new Set([...applicationIds, id]));
+  }
+
+  console.log(applicationIds);
+
+  // check if a job has been applied
+  const hasAppliedToJobs = (id) => {
+    return applicationIds.has(id);
+  } 
+
   if(!infoLoaded) {
     return <LoadingSpinner/>
   }
 
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{currentUser, setCurrentUser}}>
+      <UserContext.Provider value={{currentUser, setCurrentUser, hasAppliedToJobs, applyToJob}}>
         <div className="App">
           <Navigation logout={logout}/>
           <Routes login={login} signup={signup}/>

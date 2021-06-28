@@ -1,10 +1,20 @@
-import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, {useState, useContext} from 'react';
+import {useHistory, Redirect} from 'react-router-dom';
 import Alert from '../common/alert/Alert';
 import './LoginForm.css';
+import UserContext from './UserContext';
 
 const LoginForm = ({login}) => {
+
+    let {currentUser} = useContext(UserContext);
+    console.log(currentUser);
+
     let history = useHistory();
+
+    if (currentUser) {
+        console.log("yes");
+        history.push('/');
+    }
 
     const initialState = {
         "username":"",

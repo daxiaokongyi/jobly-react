@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import Alert from '../common/alert/Alert';
 import './SignupForm.css'
+import UserContext from './UserContext';
 
 const SignupForm = ({signup}) => {
+    
+    let {currentUser} = useContext(UserContext); 
     let history = useHistory();
+
+    if(currentUser) {
+        history.push("/");
+    }
 
     const initialState = {
         "username":"",

@@ -14,7 +14,7 @@ const JobCardList = ({jobs}) => {
                     id={job.id}
                     salary={job.salary}
                     title={job.title}
-                    key={index}
+                    key={job.id}
                 />
             ))}
         </div>
