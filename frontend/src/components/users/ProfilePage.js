@@ -18,13 +18,9 @@ const ProfilePage = () => {
     const [formData, setFormData] = useState(initialState);
     const [formErrors, setFormErrors] = useState([]);
     const [saveConfirmed, setSaveComfirmed] = useState(false);
-
-    console.log(formData);
         
     const handleSubmit = async evt => {
         evt.preventDefault();
-
-        console.log(formData);
 
         // update the user's data, get username firstly
         let username = formData.userName;

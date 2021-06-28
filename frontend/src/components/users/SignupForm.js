@@ -44,8 +44,6 @@ const SignupForm = ({signup}) => {
 
     const handleChange = evt => {
         const {name, value} = evt.target;
-        console.log(name);
-        console.log(value);
         setFormData({...formData, [name]:value});
     }
 

@@ -15,9 +15,6 @@ const SearchForm = ({search}) => {
         setSearchTerm(evt.target.value);
     }
 
-    console.log(search);
-    console.log(searchTerm);
-
     return (
         <div className="SearchForm mb-4">
             <form className="form-inline" onSubmit={handleSubmit}>

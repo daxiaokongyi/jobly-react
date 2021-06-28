@@ -7,7 +7,7 @@ import LoadingSpinner from '../common/loadingSpinner/LoadingSpinner';
 const CompanyList = () => {
     const [companies, setCompanies] = useState(null);
 
-    // get all the companies when the companies page is loading 
+    // get all the companies when the companies page is loading
     useEffect(() => {
         searchByCompany();
     }, [])
@@ -21,8 +21,6 @@ const CompanyList = () => {
     if (!companies) {
         return <LoadingSpinner/>
     }
-
-    console.log(companies);
 
     return (
         <div className="col-md-8 offset-md-2">

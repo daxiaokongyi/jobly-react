@@ -2,8 +2,6 @@ import React from 'react';
 import JobCard from './JobCard';
 
 const JobCardList = ({jobs}) => {
-    console.log(jobs);
-
     return (
         <div className="JobCardList">
             {jobs.map((job, index) => (

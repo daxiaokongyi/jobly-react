@@ -26,8 +26,6 @@ const Jobs = () => {
         return <LoadingSpinner/>
     }
 
-    console.log(jobs);
-
     return (
         <div className="col-md-8 offset-md-2">   
             <SearchForm search={searchJobs}/>

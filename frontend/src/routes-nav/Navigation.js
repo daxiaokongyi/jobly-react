@@ -3,9 +3,7 @@ import {NavLink, Link} from 'react-router-dom';
 import UserContext from '../components/users/UserContext';
 
 const Navigation = ({logout}) => {
-    console.log(useContext(UserContext));
     const {currentUser} = useContext(UserContext);
-    console.log(currentUser);
 
     const loggedInNav = () => {
         return (
@@ -38,8 +36,6 @@ const Navigation = ({logout}) => {
         </ul>
         )
     }
-
-    console.log(currentUser);
 
     return (
         <nav className="Navigation navbar navbar-expand-md">

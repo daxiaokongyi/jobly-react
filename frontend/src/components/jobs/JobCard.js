@@ -8,7 +8,6 @@ const JobCard = ({companyName, equity, id, salary, title}) => {
 
     // 
     useEffect(() => {   
-        console.log(hasAppliedToJobs(id));
         setApplied(hasAppliedToJobs(id));
     }, [id, hasAppliedToJobs])
 

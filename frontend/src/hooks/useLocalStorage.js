@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react';
 
 const useLocalStorage = (key, firstValue = null) => {
     // get item by getting from local, if no item was found, set a default value
-    console.log(localStorage.getItem(key));
     const initialValue = localStorage.getItem(key) || firstValue;
     // use useState to set item with an initial value
     const [item, setItem] = useState(initialValue);

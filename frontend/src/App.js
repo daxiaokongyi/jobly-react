@@ -18,18 +18,14 @@ function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
   const [applicationIds, setApplicationIds] = useState(new Set([]));
 
-  console.log(token);
-
   // useEffect will be triggerred when state of token changes, get info of new user and save it in the state of currentUser
   useEffect(() => {
     // function of loadCurrentUser is used to get user info
     const loadCurrentUser = async () => {
       if (token) {
         try {
-          console.log(token);
           // get user name from decoding the token
           let {username} = jwt.decode(token);
-          console.log(username);
           // set token to JoblyApi.token
           JoblyApi.token = token;
           // use the username taken from token to get the user's info
@@ -86,9 +82,6 @@ function App() {
 
   // apply a job
   const applyToJob = (id) => {
-    console.log(id);
-    console.log(currentUser.username);
-
     // check if user applied already
     if(hasAppliedToJobs(id)) {
       return;
@@ -99,8 +92,6 @@ function App() {
     // update user's job application set
     setApplicationIds(new Set([...applicationIds, id]));
   }
-
-  console.log(applicationIds);
 
   // check if a job has been applied
   const hasAppliedToJobs = (id) => {

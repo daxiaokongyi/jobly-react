@@ -5,13 +5,13 @@ import {Route, Redirect} from 'react-router-dom';
 const PrivateRoute = ({exact, path, children}) => {
     const {currentUser} = useContext(UserContext);
 
-    console.debug(
-        "PrivateRoute",
-        "exact=", exact,
-        "path=", path,
-        "currentUser=", currentUser, 
-        "children=", children
-    );
+    // console.debug(
+    //     "PrivateRoute",
+    //     "exact=", exact,
+    //     "path=", path,
+    //     "currentUser=", currentUser, 
+    //     "children=", children
+    // );
 
     return (
         <div>
